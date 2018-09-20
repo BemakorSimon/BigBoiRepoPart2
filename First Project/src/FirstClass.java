@@ -8,7 +8,7 @@ public class FirstClass
 
 	public static void main(String[] args) 
 	{
-		System.out.print("Helllo Period 1");
+		System.out.print("Helllorteyrtyrtyrtyrtyrtyrtyr Period 1");
 
 	}
 
