@@ -1,0 +1,96 @@
+The compter iteslf:
+	Mashines use binary
+	Programs must be converted to mahine language 
+
+	Compiler: Converts a program into mahine language and creates a whole new file. Then the computer can use that file.
+
+	An interpreter: It reads the program 1 line at a time, translates it to mashine code, then next line,....
+	
+	Java uses the combination of the two, It has a compiler - makes it simpler but not quite binary. Then from byte code(simpler) it uses the interpreter to read the program
+Hardare 	
+
+	Hardware vs. Software 
+	CPU - the thing that runs the programs 
+All a proccessor can do 
+	read data from main memeory
+	adding 2 numbers 
+	subtracting 2 numbers
+	multiply 2 number
+	dividing 2 numbers
+	move a piece of data from 1 spot to another
+	determine if 1 value is equal to another
+Main memory 
+	stores a prorgam while it is running 
+	stores unsaved data 
+	random acess memory 
+	called ram because cpu can read it fast
+	requires electricty 
+secondary storage 
+	hard drive 
+	disks and stuff
+	flash drives 
+input output....
+Operating system
+bininary 
+	memory is switches 
+	8 bits is 1 byte 
+	represent the switches with binary 
+Binary conversions 
+	Each place value is 2 to a power 
+	Try to convert 101101 from binary to a decimal --- 45
+	2^5+2^4+2^3+....
+
+
+
+
+LLEESSOOONNNN 222
+
+parts of java 
+	one or more classes
+	only one source code class can be public
+	public class and flie name must be same
+	Each class can be seperated into parts 
+Simple prgrame 
+	 Class header -- public class Simple
+	public static main void (string[] args) -- Main method header
+	Java statement -- system.out.print ("cioons") ;
+	comment -- //sdfywwiduuf
+Every program must have a main method
+ main method is where it starts 
+Java is case sensitive 
+
+Lesson 2
+
+Variables and Literals
+	Variable is storage location in memory 
+	literal is value written in the code 
+int value; -- Variable declaration statement. It is the data type indentifier (variable "value" That is going to store integers) 
+value = 5; -- Must declare variable before using it -- must be right to left
+
++ as an operator can to 2 thigs 
+	it can add two numbers 
+	it can add two stings 
+cant press enter on strings - will get error 
+
+identifier names : numbers letters underscores and dollarrsigns 
+	not allowed to start with a number 
+	no spaces
+	case sensitive 
+	first letter lowercase
+Data types
+	byte -- integers -- There are different sizes, thats why there are different types.
+	float -- floating point (decimals)	
+	char -- chartr
+	boolean -- True or false 
+
+	short -- integer2
+	double -- floating point (decimals) 
+
+	int -- integer3
+
+	long -- integer4
+
+\t -- tab  
+
+
+
