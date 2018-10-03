@@ -13,7 +13,7 @@ public class VariableTest
 		dayOfWeek ="Wendsday";
 		System.out.print("Today is "+ dayOfWeek + " and I spent " + timeSpent + 
 				" Minutes on this.\nAlso, Pie is equal to " + pieNum);
-
+		
 	}
 
 }
