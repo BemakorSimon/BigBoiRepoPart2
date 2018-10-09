@@ -24,6 +24,7 @@ public class PleaseWork
 		String adjective1 = jawn.nextLine();
                 System.out.println("noun:");
 		
+	
 		
 
 	}
