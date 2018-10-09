@@ -21,7 +21,10 @@ public class PleaseWork
 		System.out.println(Gender of Person 2:);
 		String genderofPerson2 = jawn.nextLine();
 		System.out.println(Adjective:);
-		String 
+		String adjective1 = jawn.nextLine();
+                System.out.println("noun:");
+		
+		
 
 	}
 
