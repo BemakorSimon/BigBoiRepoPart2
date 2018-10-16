@@ -27,7 +27,10 @@ public class ParseInput
         double area = myCalc.calculateTriangleArea(Double.parseDouble(base),Double.parseDouble(height));
 
         // Print result to user
-        System.out.println("\n\nArea of Triangle is, " + area); 
+        System.out.println("\nArea of Triangle is, " + area); 
+
+        area = myCalc.calculateRectangleArea(Double.parseDouble(base),Double.parseDouble(height));
+        System.out.println("\nArea of Rectangle is, " + area); 
 
 	}
 
@@ -48,4 +51,9 @@ class GeometryCalculator
     public double calculateTriangleArea(double base, double height) {
         return (0.5 * base) * height;
     }
+    public double calculateRectangleArea(double base, double height) {
+        return base * height;
+    }
+    
 }
+
