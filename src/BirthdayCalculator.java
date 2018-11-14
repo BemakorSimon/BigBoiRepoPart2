@@ -1,4 +1,3 @@
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class BirthdayCalculator {
 		int year2 = userIn.nextInt();
 		int month2 = userIn.nextInt();
 		int day2 = userIn.nextInt();
-		
+		userIn.close();
 		// initialize two calendars
 	      Calendar person1 = new GregorianCalendar(year1,month1,day1);
 	      Calendar person2 = new GregorianCalendar(year2,month2,day2);
@@ -30,13 +29,13 @@ public class BirthdayCalculator {
 	      {
 	         System.out.println(name1 + " is younger than " + name2);
 	      }
-	      else
+	      else if((person2.compareTo(person1)) < 0)
 	      {
 	         System.out.println(name1 + " is older than " + name2);
 	      }
-	      
-	   }
-		
-	}
-
-
+	      else
+	      {
+	    	  System.out.println("They have the same birthday");
+	      }//else  
+	   }//main	
+	}//BirthdayCalculator
