@@ -16,44 +16,31 @@ public class MontyCall
 		String door1 = "null";
 		String door2 = "null";
 		String door3 = "null";
+		String static car = "car";
+		String static goat = "goat";
+		int numOfDoors = 3;
+		String[] doors = new String[numOfDoors-1];
 		
+		
+		//Make a random integer variable that decides which door the car is behind
 		Random rand = new Random();
 		int doorPicker = rand.nextInt(3);
 		doorPicker += 1;
 		
-		if (doorPicker == 1)
-		{
-			door1 = "car";
-		}
-		else if (doorPicker != 1)
-		{
-			door1 = "goat";
-		}
+		//Define which door has a car and which has a goat
+		for(int i=1; i=numOfDoors; i++) {
+			if (doorPicker == i)
+				door[i-1] = car;
+			else 
+				door[i-1] = goat;
+			System.out.print("Door " + i + ": " + door[i-1]);
+		} //for
 		
-		if (doorPicker == 2)
-		{
-			door2 = "car";
-		}
-		else if (doorPicker != 2)
-		{
-			door2 = "goat";
-		}
 		
-		if (doorPicker == 3)
-		{
-			door3 = "car";
-		}
-		else if (doorPicker != 3)
-		{
-			door3 = "goat";
-		}
+		//Ask the user for which door the want to choose
 		Scanner userIn = new Scanner(System.in);
 		System.out.println("Please enter which door you would like to open (1, 2, or 3)");
 		int userPick = userIn.nextInt();
 		userIn.nextLine();
-		if (doorPicker == userPick) 
-		{
-			System.out.println("Congradulations! You picked the car");
-		}
 	}
 }
