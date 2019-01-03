@@ -8,7 +8,7 @@ import java.util.Scanner;
  *if(answer.equals("yes"))
  *	then switch door
  */
-public class MontyCall 
+public class MontyHall 
 {
 
 	//important variables
@@ -20,19 +20,37 @@ public class MontyCall
 	
 	public static void main(String[] args) 
 	{
-	
 		// Ask the user for which door the want to choose
 		Scanner userIn = new Scanner(System.in);
-		System.out.println("Please enter which door you would like to open (1, 2, or 3)");
-		int userPick = userIn.nextInt();
-		// read in the enter after the number
+		Random rand = new Random();
+		int winCount = 0;
+		int loseCount = 0;
+		System.out.println("How many simulations do you want to do?(10-10000");
+		int simNum = userIn.nextInt();
 		userIn.nextLine();
+		while (simNum < 10 || simNum > 10000) {
+			System.out.println("That was not a valid input. Please enter a number betwween 10 and 10000");
+			System.out.println("How many simulations do you want to do?(10-10000");
+			simNum = userIn.nextInt();
+			userIn.nextLine();
+		}//while sim checker
+		System.out.println("Do you want to switch or stay?(switch/stay)");
+		String switchAnswer = userIn.nextLine();
+		while ((!switchAnswer.equals("switch")) && (!switchAnswer.equals("stay"))) {
+			System.out.println("That was not a valid input. Please try again.");
+			System.out.println("Do you want to switch or stay?(switch/stay)");
+			switchAnswer = userIn.nextLine();
+		}//switch stay checker
+		
+		for (int i = 0; i < simNum; i++) {
+		int userPick = rand.nextInt(3);
+		userPick += 1;
+		System.out.println("Bot picked the number: " + userPick);
 		
 		int randomDoorWithGoat= firstGamePart(userPick);
 
 		System.out.println("door " + randomDoorWithGoat + " has a Goat behind it");
 
-		Random rand = new Random();
 		int randNumber = 0;
 		
 		//If the user chose yes then change their answer to the door they did not initially pick 
@@ -41,9 +59,7 @@ public class MontyCall
 		
 		// convert this into secondGamePart
 		while (quit) {
-			System.out.println("Do you want to change your answer to the other door(yes/no)");
-			String switchAnswer = userIn.nextLine();
-			if (switchAnswer.equals("yes")) {
+			if (switchAnswer.equals("switch")) {
 				while (quit) {
 					randNumber = rand.nextInt(3);
 					randNumber += 1;
@@ -51,13 +67,13 @@ public class MontyCall
 					//user pick to that door
 					if (randNumber != userPick && randNumber != randomDoorWithGoat) {
 						userPick = randNumber;
-						decider(userPick, doors, car);
+						decider(userPick, doors, car, winCount, loseCount);
 						quit = false;
 						break;
 					}//if random
 				}// while quit
-			} else if (switchAnswer.equals("no")) { 
-				decider(userPick, doors, car);
+			} else if (switchAnswer.equals("stay")) { 
+				decider(userPick, doors, car, winCount, loseCount);
 				quit = false;
 				break;
 			} else {
@@ -65,8 +81,11 @@ public class MontyCall
 				System.out.println("Please try again");
 			} // else not valid answer
 		} // while loop
-		
-		
+		}//for loop
+		//FIX******************************************************************************************************
+		System.out.println("The bot won " + winCount + " times");
+		System.out.println("The bot lost " + loseCount + " times");
+		//FIX******************************************************************************************************
 		//cleanup
 		userIn.close();
 	} //main
@@ -86,7 +105,7 @@ public class MontyCall
 				doors[i-1] = car;
 			else 
 				doors[i-1] = goat;
-			System.out.println("Door " + i + ": " + doors[i-1]);
+			//System.out.println("Door " + i + ": " + doors[i-1]);
 		} //for
 		
 	
@@ -115,10 +134,14 @@ public class MontyCall
 	
 	/***********************
 	*/
-	private static void decider (int userPick, String[] doors, String car) {
-		if (car.equals(doors[userPick-1])) 
-			System.out.println("You Won!");
-		else 
-			System.out.println("You Lost.");
+	private static void decider (int userPick, String[] doors, String car, int winCount, int loseCount) {
+		if (car.equals(doors[userPick-1])) {
+			System.out.println("Bot Won!");
+			winCount += 1;
+		}
+		else {
+			System.out.println("Bot Lost.");
+			loseCount += 1;
+		}
 	}
 } //MontyCall
