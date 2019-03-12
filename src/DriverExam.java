@@ -31,7 +31,6 @@ public class DriverExam {
 	
 	public boolean passed (char[] studentAnswers) {
 		double grade = ((double)totalCorrect(studentAnswers))/(correctAnswers.length);
-		System.out.println(grade);
 		boolean didPass = false;
 		if (grade >= 0.75) {
 			didPass = true;
@@ -44,16 +43,15 @@ public class DriverExam {
 		int counter = 0;
 		counter = totalIncorrect(studentAnswers);
 		wrongQuestions = new int[counter];
+		int arrayCounter = 0;
 		for (int i = 0; i < correctAnswers.length; i++) {
-			int arrayCounter = 0;
 			if (correctAnswers[i] == studentAnswers[i]) {
-				System.out.println("Question " + (i+1) + " is right");
+				//i know that the if should be backwards, im just lazy.
 			}
 			else {
-				System.out.println("Question " + (i+1) + " is wrong");
-				wrongQuestions[arrayCounter] = i;
+				wrongQuestions[arrayCounter] = i+1;
+				arrayCounter++;
 			}	
-			arrayCounter = i;
 			
 		}
 		return wrongQuestions;
