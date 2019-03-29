@@ -1,0 +1,18 @@
+
+public class Dice1 {
+   public static final int N = 10000;
+   
+   public static void main(String[] args) {
+      int[] d = new int[7];
+      for (int i = 1; i < 7; i++) d[i] = 0;
+      
+      for (int k = 0; k < N; k++) {
+         int roll = (int)(6.0*Math.random() + 1.0);
+         d[roll]++;
+      }
+      System.out.print("Rolls: " + N);
+      for (int i = 1; i < 7; i++)
+         System.out.print(", " + i + ": " + d[i]);
+      System.out.println();
+   }
+}
