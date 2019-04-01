@@ -15,8 +15,8 @@ public class Main {
 		}
 
 		for (int i = 0; i<=10; i++) {
-			System.out.println(counter[i]);
-			
+			System.out.print(counter[i]);
+			System.out.println("<- Number of " + (i+2) + "'s");
 		}
 	}
 
