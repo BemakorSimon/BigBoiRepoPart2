@@ -1,10 +1,12 @@
 import java.util.Random;
 
 public class Yahtzee {
+	private int[] count;
 	private Die[] dice;
 	
 	public Yahtzee () {
 		dice = new Die[5];
+		count = new int[6];
 		
 		for (int i = 0; i<5; i++) {
 			dice[i] = new Die();
@@ -16,9 +18,10 @@ public class Yahtzee {
 		for ( int i = 0;  i<5; i++) {
 			dice[i].roll();
 		}
+		
 	}
 		
-	public void rollADice (int dieNumber) {
+	public void rollADie (int dieNumber) {
 		dice[dieNumber-1].roll();
 	}
 	public int getADie (int dieNumber) {
@@ -37,5 +40,21 @@ public class Yahtzee {
 		longAns += "" + "+------+---+---+---+---+---+" + '\n';
 		
 		return longAns;
+	}
+	
+	
+	private int countUp(int value) {
+        int counter = 0;
+        for (int i = 0; i<5; i++) {
+        	if (value == dice[i].getValue())
+        			counter++;
+        }	
+		return counter;
+	}
+	
+	public static void updateCount()
+	{
+		for(int i = 0; i < 6; i++)
+				count[i] = countUp(i + 1);
 	}
 }
