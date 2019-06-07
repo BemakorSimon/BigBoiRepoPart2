@@ -11,6 +11,9 @@ public class Yahtzee {
 		for (int i = 0; i<5; i++) {
 			dice[i] = new Die();
 		}
+		rollAllDice();
+		updateCount();
+
 	}
 		
 	public void rollAllDice() {
@@ -52,9 +55,52 @@ public class Yahtzee {
 		return counter;
 	}
 	
-	public static void updateCount()
-	{
-		for(int i = 0; i < 6; i++)
-				count[i] = countUp(i + 1);
+	public void updateCount() {
+		for(int i = 0; i < 6; i++) {
+			count[i] = countUp(i + 1);
+
+		}
+	}
+	public int getScoreOnes() {
+		return count[1 - 1] * 1;
+	}
+	public int getScoreTwos() {
+		return count[2 - 1] * 2;
+	}
+	public int getScoreThrees() {
+		return count[3 - 1] * 3;
+	}
+	public int getScoreFours() {
+		return count[4 - 1] * 4;
+	}
+	public int getScoreFives() {
+		return count[5 - 1] * 5;
+	}
+	public int getScoreSixes() {
+		return count[6 - 1] * 6;
+	}
+	public int getScoreThreeOfAKind() {
+		for (int i = 0; i< (count.length-1); i++) {
+		
+		}
+		return 1;
+	}
+	public int getScoreFourOfAKind() {
+		return 1;
+	}
+	public int getScoreFullHouse() {
+		return 1;
+	}
+	public int getScoreSmallStraight() {
+		return 1;
+	}
+	public int getScoreLargeStraight() {
+		return 1;
+	}
+	public int getScoreChance() {
+		return 1;
+	}
+	public int getScoreYahtzee() {
+		return 1;
 	}
 }
