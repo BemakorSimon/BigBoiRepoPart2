@@ -80,27 +80,88 @@ public class Yahtzee {
 		return count[6 - 1] * 6;
 	}
 	public int getScoreThreeOfAKind() {
-		for (int i = 0; i< (count.length-1); i++) {
-		
+		int counter = 0;
+		for (int i = 0; i < (count.length); i++) {
+			if (count[i] == 3)
+				counter = count[i] * (i+1);
 		}
-		return 1;
+		//System.out.println("You scored a 3 of a kind");
+		return counter;
 	}
 	public int getScoreFourOfAKind() {
-		return 1;
+		int counter = 0;
+		for (int i = 0; i < (count.length); i++) {
+			if (count[i] == 4)
+				counter = count[i] * (i+1);
+		}
+		//System.out.println("You scored a 4 of a kind");
+		return counter;
 	}
 	public int getScoreFullHouse() {
-		return 1;
+		boolean ticker = false;
+		boolean ticker2 = false;
+		for (int i = 0; i < (count.length); i++) {
+			if (count[i] == 3)
+				ticker = true;
+		}
+		for (int i = 0; i < (count.length); i++) {
+			if (count[i] == 2)
+				ticker2 = true;
+		}
+		//System.out.println("You scored a full house");
+		if (ticker && ticker2)
+			return 25;
+		else 
+			return 0;
 	}
 	public int getScoreSmallStraight() {
-		return 1;
+			if (count[0] >= 1 && count[1] >= 1 && count[2] >= 1 && count[3] >= 1)
+				return 30;
+			if (count[1] >= 1 && count[2] >= 1 && count[3] >= 1 && count[4] >= 1)
+				return 30;
+			if (count[2] >= 1 && count[3] >= 1 && count[4] >= 1 && count[5] >= 1)
+				return 30;
+		return 0;
 	}
 	public int getScoreLargeStraight() {
-		return 1;
+		if (count[0] >= 1 && count[1] >= 1 && count[2] >= 1 && count[3] >= 1 && count[4] >= 1)
+			return 30;
+		if (count[1] >= 1 && count[2] >= 1 && count[3] >= 1 && count[4] >= 1 && count[5] >= 1)
+			return 30;
+		return 0;
 	}
 	public int getScoreChance() {
-		return 1;
+		int counteringThing = 0;
+		for (int i=0; i< count.length; i++) 
+			counteringThing += count[i] * (i+1);
+		return counteringThing;
 	}
 	public int getScoreYahtzee() {
-		return 1;
+		int counter = 0;
+		for (int i = 0; i < (count.length); i++) {
+			if (count[i] == 5)
+				counter = 50;
+		}
+		//System.out.println("You scored a 5 of a kind(aka Yahtzee)");
+		return counter;
+		
+	}
+	public String getScoreCard() {
+		return  "           Ones: " + getScoreOnes() + "\n" + 
+				"           Twos: " + getScoreTwos() + "\n" + 
+				"         Threes: " + getScoreThrees() + "\n" +
+				"          Fours: " + getScoreFours()  + "\n" +
+				"          Fives: " + getScoreFives() + "\n" +
+				"          Sixes: " + getScoreSixes() + "\n" + 
+				"\n" + "Three of a Kind: " + getScoreThreeOfAKind() + "\n" +
+				" Four of a Kind: " + getScoreFourOfAKind() + "\n" +
+				"     Full House: " + getScoreFullHouse() + "\n" + 
+				" Small Straight: " + getScoreSmallStraight() + "\n" + 
+				" Large Straight: " + getScoreLargeStraight() + "\n" +
+				"         Chance: " + getScoreChance() + "\n" + 
+				"        Yahtzee: " + getScoreYahtzee() + "\n";
+				
+				
+				
 	}
 }
