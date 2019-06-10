@@ -12,14 +12,19 @@ String input = jawn.nextLine();
 
 if (!(input.contains("1")))
 	yahtzee.rollADie(1);
-else if (!(input.contains("2")))
+
+if (!(input.contains("2")))
 	yahtzee.rollADie(2);
-else if (!(input.contains("3")))
+
+if (!(input.contains("3")))
 	yahtzee.rollADie(3);
-else if (!(input.contains("4")))
+
+if (!(input.contains("4")))
 	yahtzee.rollADie(4);
-else if (!(input.contains("5")))
+
+if (!(input.contains("5")))
 	yahtzee.rollADie(5);
+
 
 System.out.println(yahtzee.showDice());
 }
